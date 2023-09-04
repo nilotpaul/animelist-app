@@ -11,6 +11,13 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: false,
+  })
+);
+
 const allowedOrigins = ["http://localhost:5173", "http://localhost:5000", "https://animepulse.vercel.app"];
 const corsOptions = {
   origin: (origin, callback) => {
@@ -28,13 +35,6 @@ const corsOptions = {
 app.use(cors(process.env.NODE_ENV === "production" ? corsOptions : null));
 
 app.use(cookie());
-
-app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: false,
-  })
-);
 
 // anilist routes
 app.use("/api/anime", require("./routes/anilistRoutes"));
