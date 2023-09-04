@@ -4,6 +4,26 @@
       "source": "/api/:path(.*)",
       "destination": "https://animelist-app-tm6q9.ondigitalocean.app/:path"
     },
+    {
+      "source": "/api/anime",
+      "destination": "https://animelist-app-tm6q9.ondigitalocean.app/api/anime"
+    },
+    {
+      "source": "/api/users",
+      "destination": "https://animelist-app-tm6q9.ondigitalocean.app/api/users"
+    },
+    {
+      "source": "/api/reviews",
+      "destination": "https://animelist-app-tm6q9.ondigitalocean.app/api/reviews"
+    },
+    {
+      "source": "/api/favourites",
+      "destination": "https://animelist-app-tm6q9.ondigitalocean.app/api/favourites"
+    },
+    {
+      "source": "/api/public",
+      "destination": "https://animelist-app-tm6q9.ondigitalocean.app/api/public"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
