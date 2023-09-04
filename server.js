@@ -56,17 +56,17 @@ app.use("/api/favourites", require("./routes/favouriteRoutes"));
 // public routes
 app.use("/api/public", require("./routes/publicRoutes"));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "frontend", "dist")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "frontend", "dist")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
-} else {
-  app.get("/", (req, res) => {
-    res.send("Currently in dev mode");
-  });
-}
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+//   });
+// } else {
+//   app.get("/", (req, res) => {
+//     res.send("Currently in dev mode");
+//   });
+// }
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
