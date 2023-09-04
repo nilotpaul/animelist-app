@@ -27,14 +27,14 @@ const corsOptions = {
 
 app.use(cors(process.env.NODE_ENV === "production" ? corsOptions : null));
 
+app.use(cookie());
+
 app.use(express.json());
 app.use(
   express.urlencoded({
     extended: false,
   })
 );
-
-app.use(cookie());
 
 // anilist routes
 app.use("/api/anime", require("./routes/anilistRoutes"));
