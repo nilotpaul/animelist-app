@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/api/:path(.*)",
-      "destination": "https://animelist-app-tm6q9.ondigitalocean.app/:path"
-    },
-    {
       "source": "/api/anime",
       "destination": "https://animelist-app-tm6q9.ondigitalocean.app/api/anime"
     },
