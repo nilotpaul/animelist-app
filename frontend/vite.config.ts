@@ -14,13 +14,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://animelist-app-tm6q9.ondigitalocean.app",
-        changeOrigin: true,
-        secure: false,
-      },
-      "/api/public/users": {
-        target:
-          "https://animelist-app-tm6q9.ondigitalocean.app/api/public/users",
+        target: "https://animelist-app-tm6q9.ondigitalocean.app/api",
         changeOrigin: true,
         secure: false,
       },
