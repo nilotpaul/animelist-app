@@ -11,7 +11,14 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5000"];
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: false,
+  })
+);
+
+const allowedOrigins = ["http://localhost:5173", "http://localhost:5000", "https://animepulse.vercel.app"];
 const corsOptions = {
   origin: (origin, callback) => {
     const origins = allowedOrigins.find((item) => {
@@ -28,13 +35,6 @@ const corsOptions = {
 app.use(
   cors({
     origin: "*",
-  })
-);
-
-app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: false,
   })
 );
 
