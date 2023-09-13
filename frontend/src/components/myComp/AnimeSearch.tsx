@@ -168,7 +168,9 @@ const AnimeSearch: FC<AnimeSearchProps> = ({ animeList }) => {
           <p className="text-center ml-9">No anime found!</p>
         )}
         <>
-          {fetching && <SkeletonLoader count={20} />}
+          {fetching && (
+            <SkeletonLoader count={window.innerWidth <= 640 ? 6 : 16} />
+          )}
           {animeBySearch?.data
             ?.map((items) => {
               return (

@@ -37,7 +37,7 @@ const AnimeData: FC<AnimeDataProps> = ({ items, animeList }) => {
     <>
       <HoverCard>
         <HoverCardTrigger className="relative group">
-          <div className="invisible absolute z-20 top-1 right-1 group-hover:visible">
+          <div className="invisible absolute z-20 top-1 right-2 group-hover:visible">
             {!animeInList ? (
               <Dialog open={isDiaOpen} onOpenChange={setIsDiaOpen}>
                 <DialogTrigger>

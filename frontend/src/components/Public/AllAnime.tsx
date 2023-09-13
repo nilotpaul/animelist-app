@@ -83,7 +83,7 @@ const AllAnime: FC = () => {
                 .slice(0, window.innerWidth <= 640 ? 6 : undefined)}
             </>
           ) : (
-            <SkeletonLoader count={20} />
+            <SkeletonLoader count={window.innerWidth <= 640 ? 6 : 16} />
           )}
         </div>
         <div className="text-center mt-16 space-x-4">
@@ -133,7 +133,7 @@ const AllAnime: FC = () => {
                 .slice(0, window.innerWidth <= 640 ? 6 : undefined)}
             </>
           ) : (
-            <SkeletonLoader count={10} />
+            <SkeletonLoader count={window.innerWidth <= 640 ? 6 : 10} />
           )}
         </div>
         <div className="text-center mt-16 space-x-4">

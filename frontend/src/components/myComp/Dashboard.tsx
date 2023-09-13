@@ -6,8 +6,15 @@ import { Card, CardContent, CardFooter } from "../ui/card";
 import { Progress } from "../ui/progress";
 import { useGetAnilistQuery } from "@/redux/api/anilistApi";
 import { useGetAllReviewQuery } from "@/redux/api/reviewApi";
+import { useAppSelector } from "@/redux/store";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard: FC = () => {
+  const { isAuthenticated } = useAppSelector((state) => state.userSlice);
+  const navigate = useNavigate();
+
+  if (!isAuthenticated) navigate("/user");
+
   const [progress, setProgress] = useState(0);
   const { currentData: anilist, isFetching: aniFetch } = useGetAnilistQuery();
   const { currentData: revs, isError: revFetch } = useGetAllReviewQuery();
