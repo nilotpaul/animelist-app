@@ -47,8 +47,8 @@ const EachReviews: FC = () => {
     <div>
       {revsByAnimeId?.length !== 0 ? (
         <>
-          <h2 className="text-2xl ml-2">Reviews of {animeName?.title} :</h2>
-          <div className="grid grid-cols-3 place-content-center gap-x-3">
+          <h2 className="leading-8">Reviews of {animeName?.title}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-content-center gap-x-3">
             {revsByAnimeId?.map((rev) => {
               return (
                 <Card key={rev._id} className="mt-4 grid">

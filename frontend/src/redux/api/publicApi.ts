@@ -8,13 +8,14 @@ const publicApi = anilistApi.injectEndpoints({
       query: () => ({
         url: "/api/public/users",
       }),
+      providesTags: ["Anilist", "Favourite", "Review"],
     }),
 
     getPublicAnilist: builder.query<Anilist[], string>({
       query: (id) => ({
         url: `/api/public/animelist/${id}`,
-        cache: "force-cache",
       }),
+      providesTags: ["Anilist", "Favourite", "Review"],
     }),
   }),
 });

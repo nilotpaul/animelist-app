@@ -69,8 +69,8 @@ const AnimeList: FC<AnimeListProps> = ({ slice }) => {
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-start gap-x-8 ml-1">
-        <div className="space-y-1">
+      <div className="flex flex-col md:flex-row items-center justify-start gap-x-8 space-y-3 md:space-y-0">
+        <div className="space-y-1 w-full md:w-fit">
           <Label className="ml-1">Filter</Label>
           <Input
             placeholder="by title..."
@@ -81,7 +81,7 @@ const AnimeList: FC<AnimeListProps> = ({ slice }) => {
             }}
           />
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 w-full md:w-fit">
           <Label className="ml-1">Status</Label>
           <Select
             defaultValue="completed"
@@ -90,7 +90,7 @@ const AnimeList: FC<AnimeListProps> = ({ slice }) => {
               setSearchParams(searchParams);
             }}
           >
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full md:w-[180px]">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -103,7 +103,7 @@ const AnimeList: FC<AnimeListProps> = ({ slice }) => {
             </SelectContent>
           </Select>
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 w-full md:w-fit">
           <Label className="ml-1">Sort</Label>
           <Select
             defaultValue="a-z"
@@ -112,7 +112,7 @@ const AnimeList: FC<AnimeListProps> = ({ slice }) => {
               setSearchParams(searchParams);
             }}
           >
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full md:w-[180px]">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -126,7 +126,7 @@ const AnimeList: FC<AnimeListProps> = ({ slice }) => {
       </div>
 
       {filtedredAnime?.length !== 0 ? (
-        <div className="grid grid-cols-card place-items-start place-content-start gap-y-8 mt-6">
+        <div className="grid grid-cols-card place-items-center md:place-items-start place-content-center md:place-content-start gap-y-8 mt-6">
           {filtedredAnime
             ?.map((items) => {
               return (

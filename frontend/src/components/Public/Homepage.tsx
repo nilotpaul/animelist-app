@@ -16,8 +16,8 @@ const Homepage: FC = () => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col items-center justify-center text-xl space-y-6 mt-12">
-        <h1 className="space-x-3 leading-10 text-[2.45rem]">
+      <div className="text-center flex flex-col items-center justify-center space-y-6 mt-12">
+        <h1 className="space-x-3 leading-10 big-font-size">
           <span>Welcome to</span>
           <span>
             <span className="text-red-500">Anime</span>
@@ -26,19 +26,19 @@ const Homepage: FC = () => {
         </h1>
         <div className="flex items-center justify-center flex-col space-y-2">
           <h2>Your one-stop destination for anime enthusiasts</h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="h3-font-size text-muted-foreground leading-7">
             Track, share and discuss about your favorite anime.
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-2 place-items-center place-content-center mt-14 gap-y-16 gap-x-8 bg-muted/50 rounded-lg px-9 py-12 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 place-items-center place-content-center mt-14 gap-y-16 gap-x-8 bg-muted/50 rounded-lg px-9 py-12 relative">
         <div className="flex items-center gap-x-4">
           <Library
             size={100}
             className="h-full bg-destructive/80 rounded-full p-1.5"
           />
           <div>
-            <span className="text-[1.05rem]">
+            <span className="normal-font-size">
               Create Your Personal Anime Library
             </span>
             <p className="text-muted-foreground">
@@ -53,7 +53,7 @@ const Homepage: FC = () => {
             className="h-full bg-destructive/80 rounded-full p-1.5"
           />
           <div>
-            <span className="text-[1.05rem]">Sort and Filter</span>
+            <span className="normal-font-size">Sort and Filter</span>
             <p className="text-muted-foreground">
               Organize your anime collection by various criteria such as genre,
               rating, or release date. Quickly find that hidden gem you've been
@@ -67,7 +67,7 @@ const Homepage: FC = () => {
             className="h-full bg-destructive/80 rounded-full p-1.5"
           />
           <div>
-            <span className="text-[1.05rem]">Set Personal Ratings</span>
+            <span className="normal-font-size">Set Personal Ratings</span>
             <p className="text-muted-foreground">
               Rate and review each anime you've watched, allowing you to
               remember your thoughts and share your opinions with the community.
@@ -80,7 +80,7 @@ const Homepage: FC = () => {
             className="h-full bg-destructive/80 rounded-full p-1.5"
           />
           <div>
-            <span className="text-[1.05rem]">Detailed Statistics</span>
+            <span className="normal-font-size">Detailed Statistics</span>
             <p className="text-muted-foreground">
               Get insights into your anime-watching habits. See your
               most-watched genres, your average rating, and even how much time

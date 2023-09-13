@@ -169,16 +169,18 @@ const AnimeSearch: FC<AnimeSearchProps> = ({ animeList }) => {
         )}
         <>
           {fetching && <SkeletonLoader count={20} />}
-          {animeBySearch?.data?.map((items) => {
-            return (
-              <div
-                key={items.mal_id}
-                className="relative w-[155px] cursor-pointer h-[220px]"
-              >
-                <AnimeData items={items} animeList={animeList} />
-              </div>
-            );
-          })}
+          {animeBySearch?.data
+            ?.map((items) => {
+              return (
+                <div
+                  key={items.mal_id}
+                  className="relative w-[155px] cursor-pointer h-[220px]"
+                >
+                  <AnimeData items={items} animeList={animeList} />
+                </div>
+              );
+            })
+            .slice(0, window.innerWidth <= 640 ? 6 : undefined)}
         </>
       </div>
     </div>

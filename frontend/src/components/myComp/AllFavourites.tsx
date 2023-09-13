@@ -17,9 +17,12 @@ const AllFavourites: FC = () => {
 
   return (
     <div>
-      <h3 className="text-xl ml-2">All Favorited Anime</h3>
+      <h3 className="text-xl">All Favorited Anime</h3>
       {favs?.length !== 0 ? (
-        <Card className="flex items-center justify-center p-6 gap-x-9 rounded-sm mt-4">
+        <Card
+          id="card_scrollbar"
+          className="flex lg:items-center lg:justify-center p-6 gap-x-9 rounded-sm mt-4 overflow-x-auto"
+        >
           {favs?.map((favs) => {
             return <FavCard key={favs._id} favs={favs} />;
           })}

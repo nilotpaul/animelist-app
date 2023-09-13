@@ -56,29 +56,31 @@ const AllAnime: FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-[#0f0f11] py-8 rounded-md">
+      <div className="bg-inherit md:bg-[#0f0f11] w-full py-2 md:py-8 rounded-md">
         <h2 id="animebysearch" className="font-bold text-center">
           Anime By Search
         </h2>
         <AnimeSearch animeList={animeList!} />
       </div>
-      <div className="bg-[#0f0f11] py-8 rounded-md">
+      <div className="bg-inherit md:bg-[#0f0f11] py-2 md:py-8 rounded-md">
         <h2 id="goats" className="font-bold text-center">
           Top Anime (Goats)
         </h2>
-        <div className="grid grid-cols-card place-items-center place-content-center gap-y-8 mt-6">
+        <div className="grid grid-cols-card place-items-start place-content-center gap-y-8 mt-6">
           {!isFetching ? (
             <>
-              {anime?.data?.map((items) => {
-                return (
-                  <div
-                    key={items.mal_id}
-                    className="relative w-[155px] cursor-pointer h-[220px]"
-                  >
-                    <AnimeData items={items} animeList={animeList} />
-                  </div>
-                );
-              })}
+              {anime?.data
+                ?.map((items) => {
+                  return (
+                    <div
+                      key={items.mal_id}
+                      className="relative w-[155px] cursor-pointer h-[220px]"
+                    >
+                      <AnimeData items={items} animeList={animeList} />
+                    </div>
+                  );
+                })
+                .slice(0, window.innerWidth <= 640 ? 6 : undefined)}
             </>
           ) : (
             <SkeletonLoader count={20} />
@@ -110,23 +112,25 @@ const AllAnime: FC = () => {
           </Button>
         </div>
       </div>
-      <div className=" bg-[#0f0f11] py-8 rounded-md">
+      <div className="bg-inherit md:bg-[#0f0f11] py-2 md:py-8 rounded-md">
         <h2 id="seasonal" className="font-bold text-center">
           Airing This Season
         </h2>
         <div className="grid grid-cols-card place-items-center place-content-center gap-y-8 mt-6">
           {!seasonFetching ? (
             <>
-              {seasonAnime?.data?.map((items) => {
-                return (
-                  <div
-                    key={items.title_japanese}
-                    className="relative w-[155px] cursor-pointer h-[220px]"
-                  >
-                    <AnimeData items={items} animeList={animeList} />
-                  </div>
-                );
-              })}
+              {seasonAnime?.data
+                ?.map((items) => {
+                  return (
+                    <div
+                      key={items.title_japanese}
+                      className="relative w-[155px] cursor-pointer h-[220px]"
+                    >
+                      <AnimeData items={items} animeList={animeList} />
+                    </div>
+                  );
+                })
+                .slice(0, window.innerWidth <= 640 ? 6 : undefined)}
             </>
           ) : (
             <SkeletonLoader count={10} />

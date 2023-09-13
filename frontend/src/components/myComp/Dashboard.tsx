@@ -33,7 +33,7 @@ const Dashboard: FC = () => {
   return (
     <div className="w-[100%] h-[100vh] space-y-14">
       <div className="space-y-3">
-        <h3 className="text-xl ml-2">Progress Tab</h3>
+        <h3 className="text-xl">Progress Tab</h3>
         <Card className="rounded-md">
           <CardContent className="flex flex-col justify-center items-center w-full pt-4">
             <div className="flex items-center justify-evenly w-full">
@@ -70,7 +70,7 @@ const Dashboard: FC = () => {
         </Card>
       </div>
       <div className="space-y-3">
-        <h2 className="text-xl ml-2">Recently Added</h2>
+        <h2 className="text-xl">Recently Added</h2>
         <AnimeList slice={7} />
       </div>
       <div>

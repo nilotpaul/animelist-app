@@ -116,22 +116,20 @@ const EachAnime: FC = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-[240px_1fr]">
-        <div>
-          <img
-            src={anime?.data.images.webp.large_image_url}
-            height={300}
-            width={220}
-            alt={anime?.data.title_english || anime?.data.title}
-            className="rounded-sm h-full"
-          />
-        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-y-4 lg:gap-y-0">
+        <img
+          src={anime?.data.images.webp.large_image_url}
+          height={300}
+          width={220}
+          alt={anime?.data.title_english || anime?.data.title}
+          className="rounded-sm h-full"
+        />
         <Card id="scroll_id" className="h-full rounded-sm overflow-y-scroll">
           <CardHeader>
             <CardTitle className="text-[1.25rem]">
               {anime?.data.title_english || anime?.data.title}
             </CardTitle>
-            <div className="flex items-center gap-x-3 text-base">
+            <div className="hidden lg:flex items-center gap-x-3 text-base">
               <div className="flex items-center justify-center gap-x-2">
                 <CardDescription>
                   <span>Score: </span>
@@ -171,8 +169,8 @@ const EachAnime: FC = () => {
             {anime?.data.synopsis}
           </CardContent>
         </Card>
-        <div className="grid grid-cols-[220px_1fr] gap-x-5">
-          <Card className="rounded-sm mt-4">
+        <div className="flex items-center justify-center lg:grid grid-cols-[220px_1fr] gap-x-5 lg:place-items-start">
+          <Card className="rounded-sm mt-4 w-full lg:w-fit">
             <div>
               <div className="flex flex-col items-center justify-center mt-2 w-[94%] mx-auto space-y-1.5">
                 {!animeInList ? (
@@ -243,10 +241,10 @@ const EachAnime: FC = () => {
                   </div>
                 </div>
               </div>
-              <CardTitle className="text-base px-4 py-2 mt-2">
+              <CardTitle className="text-base px-4 py-2 mt-2 text-center md:text-start">
                 Information <Separator className="w-full h-[1px]" />
               </CardTitle>
-              <CardContent className="px-4 text-start text-sm flex flex-col justify-center gap-y-3">
+              <CardContent className="px-4 text-sm flex flex-col items-center text-center md:text-start md:items-start justify-center gap-y-3">
                 <span>
                   <span className="mr-1.5">Type:</span>
                   <span className="text-muted-foreground">
@@ -415,7 +413,7 @@ const EachAnime: FC = () => {
           </Card>
         </div>
         <div className="mt-4 space-y-3">
-          <Alert className="rounded-sm px-4 py-2 space-x-1.5">
+          <Alert className="hidden lg:block rounded-sm px-4 py-2 space-x-1.5">
             <Info className="text-red-500 -mt-1.5" />
             <AlertTitle className="text-base">Background</AlertTitle>
             <AlertDescription>
@@ -424,8 +422,49 @@ const EachAnime: FC = () => {
           </Alert>
           <div>
             <div>
-              <h3 className="my-4 mt-6">Characters And Voice Actors</h3>
-              <Table>
+              <h3 className="my-4 -mt-2 md:mt-6">
+                Characters And Voice Actors
+              </h3>
+              {final?.map((items) => (
+                <Card
+                  key={items.characters.character.mal_id}
+                  className="rounded-md w-full mt-5 lg:hidden"
+                >
+                  <CardContent className="flex items-center justify-between p-0 gap-x-4 pr-3">
+                    <div className="h-full flex items-center gap-x-3">
+                      <div className="w-[55px] h-full">
+                        <img
+                          className="w-full h-full rounded-none rounded-l-md"
+                          src={
+                            items.characters.character.images.webp?.image_url
+                          }
+                          width={55}
+                          height={80}
+                        />
+                      </div>
+                      <div className="h-full flex flex-col gap-y-6">
+                        <span>{items.characters.character.name}</span>
+                        <span>{items.characters.role}</span>
+                      </div>
+                    </div>
+                    <div className="h-full flex items-center gap-x-3">
+                      <div className="h-full flex flex-col gap-y-6 text-end">
+                        <span>{items?.voice_actor?.name}</span>
+                        <span>{items.characters.role}</span>
+                      </div>
+                      <div className="w-[55px] h-[80px]">
+                        <img
+                          className="h-full w-full rounded-none rounded-r-md"
+                          src={items.voice_actor?.images.jpg.image_url}
+                          width={55}
+                          height={80}
+                        />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+              <Table className="w-full hidden lg:table">
                 <TableHeader>
                   <TableRow>
                     <TableHead className="w-[100px]">Character</TableHead>

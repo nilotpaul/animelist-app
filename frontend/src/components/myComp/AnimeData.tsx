@@ -79,7 +79,7 @@ const AnimeData: FC<AnimeDataProps> = ({ items, animeList }) => {
             <img
               src={items.images.webp.large_image_url}
               height={220}
-              width={155}
+              width={150}
               alt={items.title_english || items.title}
               className="relative h-full rounded-sm"
             />

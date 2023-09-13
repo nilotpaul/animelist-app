@@ -94,6 +94,16 @@ const Sidebar2: FC<SidebarProps> = ({ user }) => {
                 <span className="text-lg">Dashboard</span>
               </Link>
             </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="flex lg:hidden items-center justify-start gap-x-2 w-full pt-4.5 pb-4.5"
+            >
+              <Link to="/anime">
+                <Target />
+                <span className="text-lg">Search</span>
+              </Link>
+            </Button>
             <Separator />
             <Button
               asChild

@@ -183,9 +183,11 @@ const EachAnimeList: FC = () => {
   });
 
   const joinedOn = {
-    day: new Date(getUserIdByName?.createdAt.toString() || "").getDate(),
-    month: new Date(getUserIdByName?.createdAt.toString() || "").getMonth(),
-    year: new Date(getUserIdByName?.createdAt.toString() || "").getFullYear(),
+    day: new Date(getUserIdByName?.createdAt.toString() as string).getDate(),
+    month: new Date(getUserIdByName?.createdAt.toString() as string).getMonth(),
+    year: new Date(
+      getUserIdByName?.createdAt.toString() as string
+    ).getFullYear(),
   };
 
   if (pubAniFetch || pubUserFetch || allRevFetch) {
@@ -197,7 +199,7 @@ const EachAnimeList: FC = () => {
   return (
     <div>
       <div className=" bg-muted/60 rounded-xl p-2 px-4 flex items-center gap-x-6">
-        <h2 className="text-2xl ml-2">{getUserIdByName?.name}</h2>
+        <h2 className="text-2xl ">{getUserIdByName?.name}</h2>
         <div className="space-x-1">
           <span>Joined on</span>
           <span>{joinedOn.day},</span>
@@ -205,9 +207,9 @@ const EachAnimeList: FC = () => {
           <span>{joinedOn.year}</span>
         </div>
       </div>
-      <div className="grid grid-cols-2 place-content-center w-full gap-x-8 my-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 place-content-center w-full gap-x-8 my-4">
         <div className="space-y-3">
-          <h3 className="text-xl ml-2">Progress Tab</h3>
+          <h3 className="text-xl ">Progress Tab</h3>
           <Card className="rounded-md">
             <CardContent className="flex flex-col justify-center items-center w-full pt-4">
               <div className="flex items-center justify-evenly w-full">
@@ -243,11 +245,11 @@ const EachAnimeList: FC = () => {
             </CardFooter>
           </Card>
           <div className="space-y-3">
-            <h3 className="text-xl ml-2 pt-2">Genre Overview</h3>
-            <Card className="rounded-md">
+            <h3 className="text-xl  pt-2">Genre Overview</h3>
+            <Card id="card_scrollbar" className="rounded-md overflow-x-auto">
               <CardContent className="flex items-center justify-center gap-x-8 p-4">
                 {uniqueGenres.length === 0 && (
-                  <span className="ml-2">No genres!</span>
+                  <span className="">No genres!</span>
                 )}
                 {uniqueGenres
                   ?.map((genres, id) => {
@@ -262,7 +264,7 @@ const EachAnimeList: FC = () => {
             </Card>
           </div>
           <div className="space-y-3">
-            <h3 className="text-xl ml-2 pt-2">Favorites</h3>
+            <h3 className="text-xl  pt-2">Favorites</h3>
             <Card className="rounded-md">
               <CardContent className="flex items-center justify-evenly p-4">
                 {favs
@@ -290,11 +292,11 @@ const EachAnimeList: FC = () => {
             </Card>
           </div>
         </div>
-        <div className="space-y-3 overflow-y-auto h-[585px]">
-          <h3 className="text-xl ml-2">Activity</h3>
-          <div className="w-full grid grid-cols-2 gap-4 place-content-center font-normal">
+        <div className="space-y-3 h-[585px]">
+          <h3 className="text-xl mt-4 lg:mt-0">Activity</h3>
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 place-content-center font-normal">
             {activity?.length === 0 && (
-              <span className="ml-2">No data to show!</span>
+              <span className="">No data to show!</span>
             )}
             {activity?.slice(0, 12)}
           </div>

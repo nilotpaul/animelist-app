@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="mt-6 w-auto text-base max-w-[1280px] mx-auto px-10 mb-6">
+      <main className=" main_container mt-6 w-auto text-base mx-auto mb-6">
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/user" element={<User />} />

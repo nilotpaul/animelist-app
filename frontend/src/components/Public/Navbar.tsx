@@ -20,14 +20,18 @@ const Navbar: FC = () => {
 
   return (
     <nav className="dark:bg-[#09090B] flex items-center justify-center h-[--header-height] border-b-[1px] shadow-lg">
-      <div className="main_container flex items-center justify-between w-full h-full">
+      <div className="main_container flex items-center justify-between w-full h-full mx-auto">
         <div className="text-xl">
           <Link to="/">
             <span className="text-red-500">Anime</span>
             <span className="text-muted-foreground">Pulse</span>
           </Link>
         </div>
-        <NavigationMenu className={!isAuthenticated ? "" : cn("mr-14")}>
+        <NavigationMenu
+          className={
+            !isAuthenticated ? "hidden lg:block" : cn("mr-14 hidden lg:block")
+          }
+        >
           <NavigationMenuList className="flex items-center justify-center">
             <NavigationMenuItem>
               <Button asChild variant="ghost" className="text-base">

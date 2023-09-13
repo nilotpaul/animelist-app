@@ -31,7 +31,7 @@ const Review: FC<ReviewProps> = ({ className }) => {
 
   return (
     <div>
-      <h3 className={cn("capitalize text-xl underline ml-2", className)}>
+      <h3 className={cn("capitalize underline", className)}>
         All Reviews By {userName}
       </h3>
       {userSpecificRevs?.length !== 0 ? (
@@ -44,8 +44,10 @@ const Review: FC<ReviewProps> = ({ className }) => {
             return (
               <AccordionItem key={items._id} value={`item-${id + 1}`}>
                 <AccordionTrigger>
-                  <div className="flex items-center justify-center gap-x-3">
-                    <span className="text-lg">{items.reviewTitle}</span>
+                  <div className="flex flex-col text-start md:text-center md:flex-row md:items-center md:justify-center gap-y-1.5 md:gap-x-3">
+                    <span className="h3-font-size leading-7">
+                      {items.reviewTitle}
+                    </span>
                     <span className="text-base">({items.title})</span>
                   </div>
                 </AccordionTrigger>
